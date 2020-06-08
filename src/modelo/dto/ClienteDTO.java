@@ -2,7 +2,9 @@ package modelo.dto;
 
 import java.io.Serializable;
 
-public class ClienteDTO implements Serializable {
+import modelo.acceso.Indicable;
+
+public class ClienteDTO implements Serializable,Indicable {
 	private int numero;
 	private String nombre;
 	private boolean preferente;
@@ -84,5 +86,16 @@ public class ClienteDTO implements Serializable {
 		// que tratamos podemos complicarlo un poco tanto como queramos dentro de las
 		// leyes
 		return hash * this.numero + this.nombre.hashCode();
+	}
+
+	@Override
+	public Integer getKey() {
+		return numero;
+	}
+
+	@Override
+	public void setKey(Integer t) {
+		numero=t;
+		
 	}
 }

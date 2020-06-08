@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import modelo.acceso.grabador.Grabador;
 import modelo.acceso.recuperador.Recuperador;
 import modelo.dto.ArticuloDTO;
-import modelo.dto.ClienteDTO;
 
 public class ArticuloDAO extends DAO<ArticuloDTO>{
 

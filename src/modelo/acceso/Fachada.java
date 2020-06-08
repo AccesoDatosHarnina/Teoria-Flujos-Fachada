@@ -3,8 +3,10 @@ package modelo.acceso;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import modelo.acceso.grabador.GrabadorAleatorio;
 import modelo.acceso.grabador.GrabadorBinario;
 import modelo.acceso.grabador.GrabadorTexto;
+import modelo.acceso.recuperador.RecuperadorAleatorio;
 import modelo.acceso.recuperador.RecuperadorBinario;
 import modelo.acceso.recuperador.RecuperadorTexto;
 import modelo.dao.ArticuloDAO;
@@ -24,9 +26,12 @@ public class Fachada {
 
 	public Fachada() {
 		super();
-		clienteDAO = new ClienteDAO(new RecuperadorBinario(), new GrabadorBinario(), pathCliente);
+		//clienteDAO = new ClienteDAO(new RecuperadorBinario(), new GrabadorBinario(), pathCliente);
+		clienteDAO = new ClienteDAO(new RecuperadorAleatorio<ClienteDTO, Integer>(), 
+				new GrabadorAleatorio<ClienteDTO>(), pathCliente);
 		articuloDAO = new ArticuloDAO(new RecuperadorTexto(), new GrabadorTexto(), pathArticulo);
-		socioDAO = new SocioDAO(new RecuperadorBinario(), new GrabadorBinario(), pathSocio);
+		socioDAO = new SocioDAO(new RecuperadorAleatorio(), new GrabadorAleatorio(), pathSocio);
+		
 	}
 
 	public boolean graba(ClienteDTO cliente) {

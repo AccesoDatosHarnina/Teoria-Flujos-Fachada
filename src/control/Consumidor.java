@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.acceso.Fachada;
-import modelo.dao.SocioDAO;
 import modelo.dto.ArticuloDTO;
 import modelo.dto.ClienteDTO;
 import modelo.dto.SocioDTO;
