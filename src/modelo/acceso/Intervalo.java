@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class Intervalo implements Serializable {
 	public long inicio;
-	public long fin;
+	public long longitud;
 
-	public Intervalo(long inicio, long fin) {
+	public Intervalo(long inicio, long longitud) {
 		super();
 		this.inicio = inicio;
-		this.fin = fin;
+		this.longitud = longitud;
 	}
 
 	public long getDiferencia() {
-		return fin - inicio;
+		return longitud;
 	}
 
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import modelo.acceso.Indicable;
 
-public class ClienteDTO implements Serializable,Indicable {
+public class ClienteDTO implements Serializable,Indicable<Integer> {
 	private int numero;
 	private String nombre;
 	private boolean preferente;
@@ -98,4 +98,6 @@ public class ClienteDTO implements Serializable,Indicable {
 		numero=t;
 		
 	}
+
+
 }

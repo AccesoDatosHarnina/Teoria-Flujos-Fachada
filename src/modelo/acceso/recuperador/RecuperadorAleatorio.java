@@ -6,19 +6,20 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import modelo.acceso.Intervalo;
 import modelo.acceso.MapaIntervalo;
 
-public class RecuperadorAleatorio<T, K>  implements RecuperadorObjetos<T, K> {
+public class RecuperadorAleatorio<T, K  extends Comparable<K>>  implements RecuperadorObjetos<T, K> {
 	RandomAccessFile randomAccessFile;
-	MapaIntervalo mapaIntervalo;
+	MapaIntervalo<K> mapaIntervalo;
 	
 	@Override
 	public boolean iniciaOperacion(String path) {
 		try {
 			randomAccessFile=new RandomAccessFile(path, "r");
-			mapaIntervalo=new MapaIntervalo();
+			mapaIntervalo=new MapaIntervalo<K>();
 			return true;
 		} catch (FileNotFoundException e) {
 			return false;
@@ -56,9 +57,13 @@ public class RecuperadorAleatorio<T, K>  implements RecuperadorObjetos<T, K> {
 	}
 
 	@Override
-	public boolean cierraElemento() throws IOException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean cierraElemento()  {
+		 try {
+			randomAccessFile.close();
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override

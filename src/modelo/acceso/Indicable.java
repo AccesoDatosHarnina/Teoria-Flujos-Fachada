@@ -1,6 +1,6 @@
 package modelo.acceso;
 
-public interface Indicable {
-	public Integer getKey();
-	public void setKey(Integer t);
+public interface Indicable<K extends Comparable<K>> {
+	public K getKey();
+	public void setKey(K t);
 }

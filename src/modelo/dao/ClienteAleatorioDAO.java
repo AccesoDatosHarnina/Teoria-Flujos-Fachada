@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.acceso.Indicable;
-import modelo.acceso.grabador.Grabador;
 import modelo.acceso.grabador.GrabadorObjetos;
-import modelo.acceso.recuperador.Recuperador;
 import modelo.acceso.recuperador.RecuperadorObjetos;
-import modelo.dto.ClienteDTO;
 
 public class ClienteAleatorioDAO<ClienteDTO, Integer> extends DAOObjetos<ClienteDTO, Integer> {
 
@@ -21,7 +18,7 @@ public class ClienteAleatorioDAO<ClienteDTO, Integer> extends DAOObjetos<Cliente
 	public boolean graba(ClienteDTO DTO) {
 		try {
 			grabador.iniciarOperacion(path);
-			((GrabadorObjetos<ClienteDTO>)grabador).insertaElemento((Indicable)DTO);
+			((GrabadorObjetos<ClienteDTO>) grabador).inserta((Indicable) DTO);
 			grabador.cierraElemento();
 		} catch (IOException e) {
 			return false;
@@ -33,7 +30,7 @@ public class ClienteAleatorioDAO<ClienteDTO, Integer> extends DAOObjetos<Cliente
 	public ArrayList<ClienteDTO> recupera() throws IOException {
 		try {
 			recuperador.iniciaOperacion(path);
-			ArrayList<ClienteDTO> recupera = ((RecuperadorObjetos<ClienteDTO, Integer>)recuperador).recupera();
+			ArrayList<ClienteDTO> recupera = ((RecuperadorObjetos<ClienteDTO, Integer>) recuperador).recupera();
 			recuperador.cierraElemento();
 			return recupera;
 		} catch (Exception e) {
@@ -43,8 +40,15 @@ public class ClienteAleatorioDAO<ClienteDTO, Integer> extends DAOObjetos<Cliente
 
 	@Override
 	public ClienteDTO recupera(Integer k) {
-		// TODO Auto-generated method stub
-		return null;
+		ClienteDTO recupera;
+		try {
+			recuperador.iniciaOperacion(path);
+			recupera = ((RecuperadorObjetos<ClienteDTO, Integer>) recuperador).recupera(k);
+			recuperador.cierraElemento();
+		} catch (Exception e) {
+			return null;
+		}
+		return recupera;
 	}
 
 }
