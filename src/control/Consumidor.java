@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.acceso.Fachada;
-import modelo.dto.ArticuloDTO;
 import modelo.dto.ClienteDTO;
-import modelo.dto.SocioDTO;
 
 public class Consumidor {
 	public static void main(String[] args) {
