@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import modelo.acceso.Fachada;
 import modelo.dto.ClienteDTO;
+import modelo.dto.SocioDTO;
 
 public class Consumidor {
 	public static void main(String[] args) {
 		ClienteDTO cliente=new ClienteDTO(1, "javierito", true, 12.5f);
 		//texto
 //		ArticuloDTO art=new ArticuloDTO(3,"brocha");
-//		SocioDTO socio=new SocioDTO();
+		SocioDTO socio=new SocioDTO();
 		Fachada fachada=new Fachada();
 		fachada.graba(cliente);
 		cliente=new ClienteDTO(2, "ismael", true, 12.5f);
@@ -22,6 +23,7 @@ public class Consumidor {
 		fachada.graba(cliente);
 		cliente=new ClienteDTO(3, "francesco", true, 12.5f);
 		fachada.graba(cliente);
+		fachada.graba(socio);
 //		fachada.graba(art);
 //		fachada.graba(socio);
 //		ArrayList<ArticuloDTO> lecturArticulo = null;

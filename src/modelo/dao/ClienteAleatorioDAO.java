@@ -7,6 +7,8 @@ import modelo.acceso.Indicable;
 import modelo.acceso.grabador.GrabadorObjetos;
 import modelo.acceso.recuperador.RecuperadorObjetos;
 
+//se muestra como innecesaria
+
 public class ClienteAleatorioDAO<ClienteDTO, Integer> extends DAOObjetos<ClienteDTO, Integer> {
 
 	public ClienteAleatorioDAO(RecuperadorObjetos<ClienteDTO, Integer> recuperador,
